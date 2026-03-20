@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>{{ config.title }}</title>
+
+        <link rel="stylesheet" href="{{ get_url(path='fontawesome/css/fontawesome.min.css') }}">
+        <link rel="stylesheet" href="{{ get_url(path='fontawesome/css/brands.min.css') }}">
+        <link rel="stylesheet" href="{{ get_url(path='kissi.css') }}">
+
+        {% if config.extra.kissi.theme %}
+            <style>
+                body {
+                    color: {{ config.extra.kissi.theme.foreground }};
+                    background-color: {{ config.extra.kissi.theme.background }};
+                }
+
+                a {
+                    color: {{ config.extra.kissi.theme.foreground }};
+                }
+
+                a:hover {
+                    color: {{ config.extra.kissi.theme.hover }};
+                }
+
+
+                img.portrait {
+                    border: 10px solid {{ config.extra.kissi.theme.foreground }};
+                    background: {{ config.extra.kissi.theme.portrait.background }};
+                }
+            </style>
+        {% endif %}
+    </head>
+    <body>
+        <main>
+            {% if config.extra.kissi.portrait %}
+                <div class="column left">
+                    <img src="{{ get_url(path='images/'~ config.extra.kissi.portrait) }}" class="portrait" alt="Portrait" />
+                </div>
+            {% endif %}
+            <div class="column right">
+                <h1>{{ config.extra.kissi.fullname }}</h1>
+                <h2>{{ config.extra.kissi.tagline }}</h2>
+                <p>{{ section.content | safe }}</p>
+                {% if config.extra.kissi.links %}
+                    <div class="links">
+                        {% for link in config.extra.kissi.links %}
+                            <a rel="me" href="{{ link.url }}" title="{{ link.title }}">
+                                {% if link.icon %}
+                                    <i class="fab {{ 'fa-' ~ link.icon }}"></i>
+                                {% else %}
+                                    {{ link.text }}
+                                {% endif %}
+                            </a>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        </main>
+    </body>
+</html>

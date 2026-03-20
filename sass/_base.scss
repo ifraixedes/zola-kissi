@@ -1,0 +1,60 @@
+html,
+body {
+    color: $color-foreground;
+    padding: 0;
+    margin: 1em;
+}
+
+html {
+    font-family: $sans-serif;
+    font-size: 1rem;
+    overflow-y: auto;
+}
+
+body {
+    background-color: $color-background;
+}
+
+a {
+    @include transition(color .2s ease-out);
+    color: $color-foreground;
+
+    &:hover {
+        color: $color-hover;
+    }
+}
+
+p {
+    font-size: 1rem;
+    text-align: justify;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: normal;
+    margin: 0;
+}
+@media screen and (max-width: $break-large) {
+    h1 {
+        text-align: center;
+    }
+
+    h2 {
+        text-align: center;
+    }
+}
+
+img.portrait {
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 10px solid $color-foreground;
+    margin: 2em 3em;
+    width: 100%;
+    height: auto;
+    max-width: 300px;
+    max-height: 300px;
+}

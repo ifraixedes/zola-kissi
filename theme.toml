@@ -1,0 +1,25 @@
+name = "kissi"
+description = "A KISS theme to introduce yourself."
+license = "MIT"
+homepage = "https://github.com/ifraixedes/zola-kissi"
+min_version = "0.1.0"
+demo = ""
+
+[extra.kissi]
+portrait = ""               # Optional path to image file. It only prints the HTML element when it's set and not empty.
+fullname = "Your fullname"
+tagline = "Your tagline"
+links = []                  # Optional. The container element it's only printed
+
+theme = {
+    background = "#283E5E",         # Background color of the page
+    foreground = "#FFFF",           # Color of the text
+    hover = "#CCCC12",              # Color of the links when hovered
+    portrait = {
+        background = "#4E668C",     # Background color of the portrait. It's visible if the image has a transparent background
+    },
+}
+
+[author]
+name = "Ivan Fraixedes"
+homepage = "https://ivan.fraixed.es"
